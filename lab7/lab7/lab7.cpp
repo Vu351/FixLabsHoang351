@@ -8,11 +8,12 @@ struct S
 	int it;
 };
 
-
-// thuật toán sắp xếp
+//Шаблон — это ключевое слово в C++, абстрактный тип данных, который обобщается на типы данных int, float, double, bool...
+//Алгоритм сортировки
 template <class T1>
 void all__sort(T1* arr, int l, int r, S* v = nullptr)
 {
+	//перестановка 
 	T1 p;
 	S pv;
 	int lh = l;
@@ -44,6 +45,7 @@ void all__sort(T1* arr, int l, int r, S* v = nullptr)
 	arr[l] = p;
 	if (v != nullptr)
 		v[l] = pv;
+	//перестановка 
 	int t = l;
 	l = lh;
 	r = rh;
@@ -63,6 +65,7 @@ void hal_1(T2* v, const int n) {
 	for (auto i = 0; i < n; i++) {
 		cout << v[i] << " ";
 	}
+	//освободить память
 	delete[] v;
 }
 /*мы войдем имя, вторым наименьшим возрастом

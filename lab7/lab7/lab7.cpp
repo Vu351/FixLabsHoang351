@@ -9,7 +9,7 @@ struct S
 };
 
 
-
+// thuật toán sắp xếp
 template <class T1>
 void all__sort(T1* arr, int l, int r, S* v = nullptr)
 {

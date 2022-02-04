@@ -50,25 +50,34 @@ string file_path_copy(const string* file_path_full)
 }
 bool file_copy(const string* file_path_full)
 {
+    đặt con trỏ tên buffer
     char* buffer;
     int len = 256;
+    chúng ta ghi dữ liệu vào file
     ifstream in(*file_path_full, ios_base::in);
+    chúng ta xuất dữ liệu ra file mới 
     ofstream out(file_path_copy(file_path_full), ios_base::out);
     if (!in || !out)
     {
         return false;
     }
+    cấp phát bộ nhớ cho len
     buffer = new char[len];
+    kiểm tra file có rỗng không
     while (!in.eof())
     {
+        đọc buffer vào len
         in.read(buffer, len);
         if (in.gcount())
         {
+            viết buffer sang file out
             out.write(buffer, in.gcount());
         }
     }
+    đóng cả 2 file 
     in.close();
     out.close();
+    giải phóng bộ nhớ 
     delete[] buffer;
     return true;
 }
